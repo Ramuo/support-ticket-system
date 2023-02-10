@@ -1,9 +1,10 @@
 import {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {toast} from 'react-toastify';
+import {toast} from 'react-toastify'; 
 import {FaUser} from 'react-icons/fa';
 import {useSelector, useDispatch} from 'react-redux';
 import {register, reset} from '../features/auth/authSlice'; //This is an action from the auth/authSlice
+import Spinner from '../components/Spinner';
 
 
 
@@ -24,10 +25,9 @@ function Register() {
   const navigate = useNavigate();
 
   // Let's select pieces of our state (global state) from auth/authSlice
-  const {user, isLoading, isSuccess, isError, message} = 
-    useSelector(state => state.auth);
+  const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth);
 
-  useEffect(() => {
+  useEffect(()=> {
     if(isError){
       toast.error(message);
     }
@@ -39,7 +39,7 @@ function Register() {
 
     dispatch(reset());
 
-  }, [user, isError, isSuccess, isLoading, message, navigate, dispatch]);
+  }, [isError, isSuccess, user, message, navigate, dispatch]);
 
 
   // Functions
@@ -72,6 +72,9 @@ function Register() {
     }
   }; 
 
+  if(isLoading){
+    return <Spinner/>
+  }
 
   // Rendered Elements
   return (
