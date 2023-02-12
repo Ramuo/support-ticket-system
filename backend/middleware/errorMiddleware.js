@@ -1,4 +1,5 @@
 const errorHandler = (err, req, res, next) => {
+    // Check the status Code with res (si res.statusCode existe ? utilise res.statusCode : sinon utilise 500)
     const statusCode = res.statusCode < 400 ? 500 : res.statusCode
     console.log('error middleware')
   

@@ -1,8 +1,7 @@
 const asyncHandler = require('express-async-handler');
-
 const User = require('../models/userModel');
 const Ticket = require('../models/ticketModel');
-const { Error } = require('mongoose');
+// const { Error } = require('mongoose');
 
 
 //@desc     Get user tickets

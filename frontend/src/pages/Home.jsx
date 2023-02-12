@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom'
 import {FaQuestionCircle, FaTicketAlt} from 'react-icons/fa';
 
-function Home() {
+function Home() { 
   return (
     <>
       <section className="heading">
