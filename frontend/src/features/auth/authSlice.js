@@ -16,7 +16,7 @@ const initialState = {
 }
 
 // 2 - ACTIONS
-//Let's create thunk to register new user
+//Let's register new user
 export const register =  createAsyncThunk('auth/register',
     async (user, thunkAPI) => {
         try {
@@ -34,7 +34,7 @@ export const register =  createAsyncThunk('auth/register',
     }
 ); 
 
-//Let's create the Thunk to get data to login user
+//Let's login user
 export const login = createAsyncThunk('auth/login',
     async (user, thunkAPI) => {
         try {

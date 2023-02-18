@@ -9,7 +9,7 @@ export const useAuthStatus = () => {
     const [checkingStatus, setCheckingStatus] = useState(true);
 
     // Let's get the user from the state
-    const {user} = useSelector((state)=> state.auth);
+    const {user} = useSelector((state)=> state.auth); 
 
     useEffect(()=>{
         if(user){

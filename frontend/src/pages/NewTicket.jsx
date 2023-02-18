@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import {createTicket, reset} from '../features/tickets/ticketSlice';
 import Spinner from '../components/Spinner';
+import BackButton from '../components/BackButton';
 
 
 
@@ -11,12 +12,13 @@ import Spinner from '../components/Spinner';
 function NewTicket() {
     // // let's bring in user from Global state
     const {user} = useSelector((state)=> state.auth);
-    const {isLoading, isError, isSuccess, message} = useSelector((state) => state.ticket);
+
+    const {isLoading, isError, isSuccess, message} = useSelector((state) => state.tickets);
 
     const [name] = useState(user.name);
     const [email] = useState(user.email);
     const [product, setProduct] = useState('iPhone');
-    const [description, setdescription] = useState('')
+    const [description, setdescription] = useState('');
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -49,6 +51,7 @@ function NewTicket() {
     // Rendered elements
     return (
     <>
+        <BackButton url='/'/>
         <section className='heading'>
             <h1>Create New Ticket</h1>
             <p>Please fill out the form below</p>

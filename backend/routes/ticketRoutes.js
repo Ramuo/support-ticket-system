@@ -11,8 +11,12 @@ const {
     deleteTicket
 } = require('../controllers/ticketController');
 
-// Protect middleware 
+// Protect middleware  
 const {protect} = require('../middleware/authMiddleware');
+
+// Re-route into note router
+const noteRouter = require('./noteRoutes');
+router.use('/:ticketId/notes', noteRouter);
 
 router
     .route('/')
