@@ -18,7 +18,7 @@ const getNotes = async (ticketId, token) => {
   return response.data
 };
 
-// Create ticket note
+
 // Create ticket note
 const createNote = async (noteText, ticketId, token) => {
   const config = {
