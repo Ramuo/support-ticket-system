@@ -53,25 +53,25 @@ function NewTicket() {
     <>
         <BackButton url='/'/>
         <section className='heading'>
-            <h1>Create New Ticket</h1>
-            <p>Please fill out the form below</p>
+            <h1>Créer un nouveau Ticket</h1>
+            <p>Remplissez le formulaire ci-dessous</p>
         </section>
 
         <section className='form'>
             <div className='form-group'>
-                <label htmlFor='name'>Customer Name</label>
+                <label htmlFor='name'>Nom du client</label>
                 <input 
                 className='form-control' type="text" value={name} disabled/>
             </div>
             <div className='form-group'>
-                <label htmlFor='email'>Customer Email</label>
+                <label htmlFor='email'>Email client</label>
                 <input 
                 className='form-control' type="text" value={email} disabled/>
             </div>
 
             <form onSubmit={onSubmit}>
                 <div className="form-group">
-                    <label htmlFor="product">Product</label>
+                    <label htmlFor="product">Produit</label>
                     <select 
                     name="product" 
                     id="product" 
@@ -95,7 +95,7 @@ function NewTicket() {
                     ></textarea>
                 </div>
                 <div className="form-group">
-                    <button className="btn btn-block">Submit</button>
+                    <button className="btn btn-block">Envoyer</button>
                 </div>
             </form>
         </section>

@@ -40,8 +40,8 @@ function Tickets() {
             <div className="tickets">
                 <div className="ticket-headings">
                     <div>Date</div>
-                    <div>Product</div>
-                    <div>Status</div>
+                    <div>Produitt</div>
+                    <div>Statut</div>
                     <div></div>
                 </div>
                 {tickets.map((ticket) =>(

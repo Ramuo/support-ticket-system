@@ -14,7 +14,7 @@ const initialState = {
     isLoading: false,
     message: ''
 }
-
+ 
 // 2 - ACTIONS
 //Let's register new user
 export const register =  createAsyncThunk('auth/register',

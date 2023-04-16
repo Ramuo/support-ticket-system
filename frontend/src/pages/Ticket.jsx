@@ -77,7 +77,7 @@ function Ticket() {
         return <Spinner/>
     }
     if(isError){
-        return <h3>Something went wrong</h3>
+        return <h3>Quelque chose s'est mal passé</h3>
     }
 
     // Function to Open/close
@@ -91,32 +91,32 @@ function Ticket() {
         <header className="ticket-header">
             <BackButton url='/tickets'/>
             <h2>
-                tcket ID: {ticket._id}
+                ID ticket: {ticket._id}
                 <span className={`status status-${ticket.status}`}>
                     {ticket.status}
                 </span>
             </h2>
-            <h3>Date Submitted: {new Date(ticket.createdAt).toLocaleString('en-FR')}</h3>
-            <h3>Product: {ticket.product}</h3>
+            <h3>Date de soumission: {new Date(ticket.createdAt).toLocaleString('en-FR')}</h3>
+            <h3>Produit: {ticket.product}</h3>
             <hr />
             <div className="ticket-desc">
-                <h3>Description of issue</h3>
+                <h3>Description du problème</h3>
                 <p>{ticket.description}</p>
             </div>
-            <h2>Notes</h2>
+            <h2>Message</h2>
         </header>
         
 
         {ticket.status !== 'closed' && (
-            <button onClick={openModal} className="btn"> <FaPlus/> Add Note</button>
+            <button onClick={openModal} className="btn"> <FaPlus/> Ajouter un message</button>
         )}
 
         <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={customStyles} contentLabel = 'Add Note'
+        style={customStyles} contentLabel = 'Ajouter un message'
         >
-            <h2>Add Note</h2>
+            <h2>Ajouter un message</h2>
             <button 
             className='btn-close' 
             onClick={closeModal }>
@@ -128,14 +128,14 @@ function Ticket() {
                     name="noteText" 
                     id="noteText" 
                     className='form-control' 
-                    placeholder='Note text'
+                    placeholder='texte'
                     value={noteText}
                     onChange={(e)=> setNoteText(e.target.value)}
                     >
                     </textarea>
                 </div>
                 <div className="form-group">
-                    <button className="btn" type='submit'>Submit</button>
+                    <button className="btn" type='submit'>Envoyer</button>
                 </div>
             </form>
         </Modal>

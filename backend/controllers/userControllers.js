@@ -9,15 +9,16 @@ const User = require('../models/userModel');
 //@route    POST /api/users
 //@access   Public
 const registerUser = asyncHandler (async (req, res) => {
+    // Get user from req.body object
     const {name, email, password} = req.body;
 
-    //Validation
+    // 2 Validation 
     if(!name || !email || !password){
       res.status(400)
       throw new Error('Please include all fields')
     }
 
-    // Find if user already exists
+    // 3 Find if user already exists
     const userExists = await User.findOne({email})
 
     if(userExists){
@@ -25,18 +26,18 @@ const registerUser = asyncHandler (async (req, res) => {
         throw new Error('User already exists')
     }
 
-    // Hash the password
+    // 4 Hash the password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // To Create a new user
+    // 5 To Create a new user
     const user = await User.create({
         name,
         email,
         password: hashedPassword
     });
 
-    // Once user created
+    // 6 Once user created
     if(user){
         res.status(201).json({
             _id: user._id,
@@ -45,8 +46,8 @@ const registerUser = asyncHandler (async (req, res) => {
             token: generateToken(user._id)
         })
     }else{
-        res.status(400)
-        throw new Error('Invalid user data');
+        res.status(401)
+        throw new Error('Invalid Credential');
     }
 });
 

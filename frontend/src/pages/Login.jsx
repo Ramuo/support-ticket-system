@@ -35,7 +35,7 @@ function Login() {
 
     dispatch(reset());
 
-  }, [isLoading, isSuccess, isError, message, navigate, dispatch]);
+  }, [isLoading, isSuccess, isError, message, user, navigate, dispatch]);
 
 
   // Functions
@@ -71,9 +71,9 @@ function Login() {
     <>
       <section className="heading">
         <h1>
-          <FaSignInAlt/>Login
+          <FaSignInAlt/>Connexion
         </h1>
-        <p>Please login to get support</p>
+        <p>Veuillez vous connecter pour obtenir de l'aide</p>
       </section>
 
       <section className="form">
@@ -86,7 +86,7 @@ function Login() {
             name='email'
             value={email}
             onChange={onChange}
-            placeholder="Enter your email"
+            placeholder="Votre email"
             required
             />
           </div>
@@ -98,12 +98,12 @@ function Login() {
             name='password'
             value={password}
             onChange={onChange}
-            placeholder="Enter your password"
+            placeholder="Votre mot de passe"
             required
             />
           </div>
           <div className="form-group">
-            <button className="btn btn-block">Submit</button>
+            <button className="btn btn-block">Envoyer</button>
           </div>
         </form>
       </section>
