@@ -36,7 +36,7 @@ const registerUser = asyncHandler (async (req, res) => {
         email,
         password: hashedPassword
     });
-
+ 
     // 6 Once user created
     if(user){
         res.status(201).json({

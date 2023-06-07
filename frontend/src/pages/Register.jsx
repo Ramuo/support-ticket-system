@@ -26,7 +26,7 @@ function Register() {
 
   // Let's select pieces of our state (global state) from auth/authSlice
   const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth);
-
+ 
   useEffect(()=> {
     if(isError){
       toast.error(message);
